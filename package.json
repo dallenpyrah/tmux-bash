@@ -6,6 +6,7 @@
   "type": "module",
   "keywords": ["opencode", "opencode-tool", "tmux", "bash"],
   "exports": {
+    ".": "./src/plugin.ts",
     "./bash": "./src/bash.ts",
     "./tmux": "./src/tmux.ts"
   },

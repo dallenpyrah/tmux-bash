@@ -1,23 +1,20 @@
 # tmux-bash
 
-OpenCode custom `bash` replacement that runs commands in managed tmux windows.
+OpenCode plugin that replaces `bash` with a tmux-backed implementation and adds a `tmux` inspection tool.
 
 ## Install
 
-```bash
-npm install --prefix ~/.config/opencode git+https://github.com/dallenpyrah/tmux-bash.git
-mkdir -p ~/.config/opencode/tools
-cat > ~/.config/opencode/tools/bash.ts <<'EOF'
-export { default } from "tmux-bash/bash"
-EOF
-cat > ~/.config/opencode/tools/tmux.ts <<'EOF'
-export { default } from "tmux-bash/tmux"
-EOF
+```json
+{
+  "plugin": ["git+https://github.com/dallenpyrah/tmux-bash.git"]
+}
 ```
 
 Requires `tmux` on `PATH`.
 
 ## Tools
+
+The plugin registers `bash` and `tmux`. Because the `bash` tool name matches OpenCode's built-in tool, it takes precedence.
 
 `bash` runs every command in the `opencode-background` tmux session. Foreground calls wait up to `timeout` seconds, then default to leaving the command in the background.
 
